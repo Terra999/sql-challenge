@@ -35,21 +35,18 @@ where dept_no in
 	);
 
 -- Trying with joins and create view.
-create view department_managers as	
-select d.dept_name
+-- create view department_managers as	
+
+select d.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name   
 from departments as d
 	join dept_manager as m
 	on (d.dept_no=m.dept_no)
 		join employees as e
 		on (m.emp_no=e.emp_no)
 			join titles as t
-			on (e.emp_title_id=t.title_id)
-			group by d.dept_name;
-			
-select * 
-from department_managers;
+			on (e.emp_title_id=t.title_id);
+		
 
--- How can I get more columns to show up?
 			
 	
 
