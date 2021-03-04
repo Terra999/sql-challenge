@@ -1,0 +1,55 @@
+-- List the following details of each employee: employee number, last name, firs name, sex, and salary.
+
+select e.emp_no, e.last_name, e.first_name, e.sex, s.salary
+from salaries as s
+inner join employees as e on
+e.emp_no=s.emp_no;
+
+-- List first name, last name, and hire date for employees who were hired in 1986.
+select first_name, last_name, hire_date
+from employees
+where hire_date between '01/01/86' and '12/31/86'; 
+
+-- List the manager of each department with the following information:
+-- department number, department name, the manager's employee number, 
+-- last name, first name.
+-- Using subqueries
+
+select dept_name
+from departments
+where dept_no in
+	(
+	select dept_no
+	from dept_manager
+	where emp_no in
+		(
+		select emp_no
+		from employees
+		where emp_title_id in
+			(
+			select title_id
+			from titles
+			where title = 'Manager'
+			)
+		 )
+	);
+
+-- Trying with joins and create view.
+create view department_managers as	
+select d.dept_name
+from departments as d
+	join dept_manager as m
+	on (d.dept_no=m.dept_no)
+		join employees as e
+		on (m.emp_no=e.emp_no)
+			join titles as t
+			on (e.emp_title_id=t.title_id)
+			group by d.dept_name;
+			
+select * 
+from department_managers;
+
+-- How can I get more columns to show up?
+			
+	
+
