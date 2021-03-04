@@ -56,5 +56,12 @@ from departments as p
 		join employees as e
 		on (d.emp_no=e.emp_no);
 			
+-- Q5. List first name, last name, and sex for employees whose first name is "Hercules" and last names begin with "B".
+
+select first_name, last_name, sex from employees
+where first_name = 'Hercules'
+and last_name like 'B%';
+
+-- Q6. List all employees in the Sales department, including their employee number, last name, first name and department name.
 	
 
