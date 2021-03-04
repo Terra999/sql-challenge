@@ -63,5 +63,25 @@ where first_name = 'Hercules'
 and last_name like 'B%';
 
 -- Q6. List all employees in the Sales department, including their employee number, last name, first name and department name.
-	
+-- Missing department name
+-- select emp_no, last_name, first_name
+-- from employees
+-- where emp_no in
+-- 	(
+-- 	select emp_no
+-- 	from dept_emp
+-- 	where dept_no in
+-- 		(
+-- 		select dept_no
+-- 		from departments
+-- 		where dept_name = 'Sales'
+-- 		)
+-- 	);
 
+select e.emp_no, e.last_name, e.first_name, p.dept_name   
+from departments as p
+	join dept_emp as d 
+	on (p.dept_no=d.dept_no)
+		join employees as e
+		on (d.emp_no=e.emp_no)
+		where dept_name = 'Sales';
