@@ -85,3 +85,14 @@ from departments as p
 		join employees as e
 		on (d.emp_no=e.emp_no)
 		where dept_name = 'Sales';
+		
+-- Q7. List all employees in the Sales and Development departments, include their employee number, last name, first name, and department name.
+
+select e.emp_no, e.last_name, e.first_name, p.dept_name   
+from departments as p
+	join dept_emp as d 
+	on (p.dept_no=d.dept_no)
+		join employees as e
+		on (d.emp_no=e.emp_no)
+		where dept_name in ('Sales', 'Development');
+		
