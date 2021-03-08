@@ -1,7 +1,7 @@
 # sql-challenge
 SQL Homework - Employee Database: A Mystery in Two Parts
 
-As a new data engineer at Pewlett Hackard my first major task was to research all the employees of the corporation from the 1980s and 1990s. The database of employees that I had to use consisted of six CSV files. None-the-less, I was able to design tables to hold data in the CSVs, import the CSVs into a SQL database, and provide the following information about the data:
+As a new data engineer at Pewlett Hackard my first major task was to research all the employees of the corporation from the 1980s and 1990s. The database of employees that I had to use consisted of six CSV files. Given my data analytics prowess, I was able to design tables to hold data in the CSVs, import the CSVs into a SQL database, and provide the following information about the data:
 
 #1 Details of each employee: employee number, last name, first name, sex, and salary.
 
